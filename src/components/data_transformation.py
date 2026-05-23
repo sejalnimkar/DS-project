@@ -95,7 +95,6 @@ class DataTransformation:
            
             logging.info(f'Saved programming object.')
             save_object(
-
                 file_path=self.data_transformation_config.preprocessor_obj_file_path,
                 obj=preprocessing_obj
             )

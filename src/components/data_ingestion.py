@@ -68,8 +68,8 @@ class DataIngestion:
             )
 
             # ── 7. Keep only the columns we need ─────────────────────────────
-            df = df[["YEAR", "MONTH", "SUPPLIER", "ITEM TYPE",
-                      "WAREHOUSE SALES", "RETAIL SALES"]]
+            df = df[["YEAR", "MONTH", "SUPPLIER", "ITEM TYPE", "ITEM CODE",
+         "WAREHOUSE SALES", "RETAIL SALES"]]
 
             logging.info(f"Final cleaned shape: {df.shape}")
 

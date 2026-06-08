@@ -19,7 +19,7 @@ class DataTransformationConfig:
 
 
 # ── Column definitions ────────────────────────────────────────────────────────
-NUMERICAL_COLUMNS    = ["YEAR", "MONTH", "WAREHOUSE SALES"]
+NUMERICAL_COLUMNS    = ["YEAR", "MONTH", "WAREHOUSE SALES", "ITEM CODE"]
 CATEGORICAL_COLUMNS  = ["ITEM TYPE", "SUPPLIER"]
 TARGET_COLUMN        = "RETAIL SALES"
 
@@ -63,11 +63,17 @@ class DataTransformation:
         try:
             train_df = pd.read_csv(train_path)
             test_df  = pd.read_csv(test_path)
+
             logging.info("Train and test data loaded for transformation")
 
             preprocessing_obj = self.get_data_transformer_object()
 
             # ── Features & target ─────────────────────────────────────────────
+            # Target encode ITEM CODE using training data only (must be done before X/y split)
+            item_code_means = train_df.groupby("ITEM CODE")["RETAIL SALES"].mean()
+            train_df["ITEM CODE"] = train_df["ITEM CODE"].map(item_code_means).fillna(item_code_means.mean())
+            test_df["ITEM CODE"]  = test_df["ITEM CODE"].map(item_code_means).fillna(item_code_means.mean())
+
             X_train = train_df.drop(columns=[TARGET_COLUMN])
             X_test  = test_df.drop(columns=[TARGET_COLUMN])
 

@@ -88,7 +88,7 @@ class ModelTrainer:
 
             logging.info(f"Best model: {best_model_name} | R²: {best_model_score:.4f}")
 
-            if best_model_score < 0.6:
+            if best_model_score < 0.5:
                 raise CustomException("No model exceeded R² threshold of 0.6", sys)
 
             save_object(

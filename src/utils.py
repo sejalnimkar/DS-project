@@ -5,6 +5,7 @@ import numpy as np
 from sklearn.metrics import r2_score
 from sklearn.model_selection import GridSearchCV
 from src.exception import CustomException
+from src.logger import logging
 
 
 def save_object(file_path, obj):

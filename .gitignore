@@ -1,3 +1,9 @@
+# Project-specific
+artifacts/
+catboost_info/
+data/
+logs/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -42,6 +42,8 @@ An end-to-end modular machine learning pipeline that predicts monthly retail sal
 ## Dataset
 
 **Source:** [Montgomery County Open Data — Warehouse and Retail Sales](https://data.montgomerycountymd.gov/w/v76h-r7br)
+> **Note:** Copy and paste the dataset URL directly into your browser — 
+> clicking the link may return a 403 error due to portal restrictions.
 
 - 307,645 records of monthly item-level sales across suppliers and product categories
 - Updated monthly by Montgomery County, MD
